@@ -1,10 +1,457 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Youssef Mohamed's machine learning portfolio: practical work, clear reasoning, and measurable evidence."><title>Youssef Mohamed | Machine Learning Portfolio</title><link rel="stylesheet" href="styles.css"></head><body>
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header"><div class="container navbar"><a class="brand" href="index.html"><span class="brand-mark">YM</span><span>Youssef Mohamed</span></a><button class="menu-button" aria-expanded="false" aria-label="Open navigation">Menu</button><nav class="nav-links" aria-label="Main navigation"><a href="index.html" aria-current="page">Home</a><a href="projects.html">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></div></header>
-<main id="main">
-<section class="hero"><div class="container hero-grid"><div><span class="eyebrow">AI Student · Machine Learning</span><h1>Practical machine learning, backed by evidence.</h1><p class="lead">I turn real business problems into practical machine learning solutions backed by measurable evidence. This portfolio shows the decisions, code, evaluation, and honest limitations behind my work.</p><div class="hero-actions"><a class="button button-primary" href="content-opportunity.html">View featured case →</a><a class="button button-secondary" href="projects.html">Explore all projects</a></div></div><div class="hero-art" aria-label="Abstract evidence dashboard"><div class="signal-card signal-main"><div class="signal-top"><div><span>Featured result</span><strong>0.74</strong><span>Precision@50 with Logistic Regression</span></div><span class="signal-badge">+0.38 vs baseline</span></div><div class="mini-chart" aria-hidden="true"><i style="height:26%"></i><i style="height:42%"></i><i style="height:35%"></i><i style="height:58%"></i><i style="height:64%"></i><i style="height:73%"></i><i style="height:86%"></i><i style="height:100%"></i></div></div><div class="signal-card signal-small-a"><strong>30,000</strong><span>anonymized content pages</span></div><div class="signal-card signal-small-b"><strong>0 overlap</strong><span>between train and test clients</span></div></div></div></section>
-<section class="section-tight"><div class="container stats"><div class="stat"><strong>30K</strong><span>rows analyzed</span></div><div class="stat"><strong>45</strong><span>source fields inspected</span></div><div class="stat"><strong>3</strong><span>core portfolio cases</span></div><div class="stat"><strong>2</strong><span>FlyRank tracks</span></div></div></section>
-<section class="section"><div class="container"><div class="section-heading"><div><span class="eyebrow">Selected work</span><h2>Evidence over buzzwords.</h2></div><p>Each case starts with the decision, shows what I built, and separates measured results from what still needs validation.</p></div><div class="grid-3"><a class="card card-link" href="content-opportunity.html"><div class="project-icon">01</div><h3>Content Opportunity Scoring</h3><p>A ranking system for prioritizing content pages for refresh review, from task framing and a transparent baseline to a grouped-split Logistic Regression model.</p><div class="meta"><span class="tag">Ranking</span><span class="tag">Logistic Regression</span><span class="tag">Precision@50</span></div><span class="link-arrow">Read case study →</span></a><a class="card card-link" href="data-contract.html"><div class="project-icon teal">02</div><h3>Search Intelligence Data Contract</h3><p>A practical contract for interpreting warehouse data correctly, with verification queries, missingness checks, approved features, and leakage traps.</p><div class="meta"><span class="tag">Data quality</span><span class="tag">SQL reasoning</span><span class="tag">Feature safety</span></div><span class="link-arrow">Read case study →</span></a><a class="card card-link" href="ai-fluency.html"><div class="project-icon">03</div><h3>AI Fluency Build System</h3><p>A structured workflow for turning verified project facts into clear portfolio writing, plus prompt iteration, identity design, image judgment, and MCP analysis.</p><div class="meta"><span class="tag">Prompt design</span><span class="tag">Workflow</span><span class="tag">MCP</span></div><span class="link-arrow">Read case study →</span></a></div></div></section>
-<section class="section"><div class="container grid-2"><div class="card"><span class="eyebrow">How I work</span><h2 style="font-size:2.2rem;margin-top:16px">Frame. Verify. Evaluate. Communicate.</h2><p>I begin with the real decision, define the unit and metric, inspect the data contract, build a transparent baseline, and evaluate on a split that matches the risk. I then explain what the result proves—and what it does not.</p></div><div class="card"><div class="timeline"><div class="timeline-item"><div class="timeline-number">1</div><div><h3>Frame the decision</h3><p>Translate an unclear business question into a measurable ML task.</p></div></div><div class="timeline-item"><div class="timeline-number">2</div><div><h3>Protect the evidence</h3><p>Check missingness, leakage, feature availability, and split integrity.</p></div></div><div class="timeline-item"><div class="timeline-number">3</div><div><h3>Measure honestly</h3><p>Use operational metrics and state limitations before making claims.</p></div></div></div></div></div></section>
-<section class="section-tight"><div class="container band"><div><h2 style="font-size:2.2rem">Looking for a Machine Learning intern?</h2><p>I am looking for a role where I can contribute to real projects, learn from an experienced team, and keep strengthening my end-to-end ML skills.</p></div><a class="button button-primary" href="contact.html">Contact me</a></div></section>
-</main><footer class="site-footer"><div class="container footer-inner"><span>© <span data-year></span> Youssef Mohamed. Built with HTML, CSS, and JavaScript.</span><div class="footer-links"><a href="projects.html">Projects</a><a href="https://github.com/yousefmohamed662006-debug" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/yousef-abdelazem-3361ab347" target="_blank" rel="noreferrer">LinkedIn</a></div></div></footer><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Youssef Mohamed Abdelazem, an AI student and Machine Learning developer building practical AI, computer vision, and data-driven systems.">
+  <meta name="author" content="Youssef Mohamed Abdelazem">
+  <meta property="og:title" content="Youssef Mohamed Abdelazem | AI & Machine Learning">
+  <meta property="og:description" content="AI student and Machine Learning developer building practical, measurable AI systems.">
+  <meta property="og:type" content="website">
+  <title>Youssef Mohamed Abdelazem | AI & Machine Learning</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Youssef Mohamed Abdelazem home">
+        <span class="brand-mark">YA</span>
+        <span class="brand-name">Youssef Abdelazem</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a class="button button-small button-outline" href="Yousef_Abdelazem_CV.pdf" target="_blank" rel="noopener">
+        View CV
+      </a>
+    </nav>
+  </header>
+
+  <main id="main-content">
+    <section class="hero section" id="top">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">AI Student · Machine Learning Developer</p>
+          <h1>I build practical AI systems for real-world problems.</h1>
+          <p class="hero-text">
+            I am Youssef Mohamed Abdelazem, an Artificial Intelligence student and AI & ML Engineer
+            focused on Machine Learning, Deep Learning, Computer Vision, and reliable model evaluation.
+          </p>
+
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">Explore My Work</a>
+            <a class="button button-secondary" href="Yousef_Abdelazem_CV.pdf" download>Download CV</a>
+          </div>
+
+          <div class="quick-links" aria-label="Professional links">
+            <a href="https://linkedin.com/in/yousef-abdelazem-3361ab347" target="_blank" rel="noopener">LinkedIn ↗</a>
+            <a href="https://github.com/yousefmohamed662006-debug" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="mailto:yousefmohamed662006@gmail.com">Email ↗</a>
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Profile overview">
+          <div class="profile-mark" aria-hidden="true">YA</div>
+          <p class="status"><span></span> Open to AI and ML opportunities</p>
+
+          <dl class="profile-facts">
+            <div>
+              <dt>Based in</dt>
+              <dd>Port Said, Egypt</dd>
+            </div>
+            <div>
+              <dt>Current focus</dt>
+              <dd>Computer Vision & Applied ML</dd>
+            </div>
+            <div>
+              <dt>Education</dt>
+              <dd>B.Sc. Artificial Intelligence</dd>
+            </div>
+            <div>
+              <dt>Graduation</dt>
+              <dd>Expected 2028</dd>
+            </div>
+          </dl>
+        </aside>
+      </div>
+
+      <div class="container stats-grid" aria-label="Selected highlights">
+        <article class="stat-card">
+          <strong>97%</strong>
+          <span>Color matching accuracy</span>
+        </article>
+        <article class="stat-card">
+          <strong>98%</strong>
+          <span>Paint type classification accuracy</span>
+        </article>
+        <article class="stat-card">
+          <strong>93</strong>
+          <span>Approximate color classes</span>
+        </article>
+        <article class="stat-card">
+          <strong>2028</strong>
+          <span>Expected graduation</span>
+        </article>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="about">
+      <div class="container two-column">
+        <div>
+          <p class="section-kicker">About Me</p>
+          <h2>Engineering AI that is useful, measurable, and responsible.</h2>
+        </div>
+        <div class="body-copy">
+          <p>
+            I am a second-year Artificial Intelligence student at the Faculty of Computers and
+            Information, Suez Canal University. Alongside my studies, I work on applied AI systems
+            that connect model development with real operational needs.
+          </p>
+          <p>
+            My experience includes CNN-based image classification, transfer learning, image
+            preprocessing, regression, feature engineering, and model evaluation. I enjoy turning
+            complex technical work into clear decisions that teams can understand and use.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="container">
+        <p class="section-kicker">Experience</p>
+        <div class="section-heading">
+          <h2>Learning through real delivery.</h2>
+          <p>Selected professional and training experience.</p>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-date">Apr 2026 — Present</div>
+            <div class="timeline-content">
+              <p class="role-label">Current Role</p>
+              <h3>AI & ML Engineer · Kapci Coatings</h3>
+              <p>
+                Developing confidential AI and Machine Learning solutions for industrial paint
+                analysis, color intelligence, and formulation prediction. Work includes model
+                pipelines using Python, TensorFlow/Keras, PyTorch, OpenCV, and Scikit-Learn.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">Sep 2025 — Mar 2026</div>
+            <div class="timeline-content">
+              <p class="role-label">Internship</p>
+              <h3>AI Intern · Kapci Coatings</h3>
+              <p>
+                Built computer vision solutions for color recognition and paint classification,
+                including preprocessing and data augmentation workflows designed for real-world
+                lighting, angle, noise, and blur variations.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">Current Development</div>
+            <div class="timeline-content">
+              <p class="role-label">Professional Training</p>
+              <h3>Machine Learning & AI Fluency · FlyRank</h3>
+              <p>
+                Building and evaluating practical ML systems, documenting operational decisions,
+                and creating AI-assisted workflows and agents grounded in project evidence.
+              </p>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-date">Summer 2025</div>
+            <div class="timeline-content">
+              <p class="role-label">Summer Training</p>
+              <h3>AI Summer Trainee · SCCT</h3>
+              <p>
+                Gained exposure to port operations, logistics workflows, terminal management
+                systems, and local and international operational processes.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="projects">
+      <div class="container">
+        <p class="section-kicker">Featured Projects</p>
+        <div class="section-heading">
+          <h2>Projects built around practical outcomes.</h2>
+          <p>Public summaries only; confidential company data is not included.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card project-featured">
+            <div class="project-topline">
+              <span class="project-number">01</span>
+              <span class="project-status">Delivered</span>
+            </div>
+            <h3>Industrial Color Matching System</h3>
+            <p>
+              A computer vision system that recognizes known paint colors and recommends the nearest
+              matching color for unseen samples, supporting faster and more consistent decisions.
+            </p>
+            <div class="project-metric">
+              <strong>97%</strong>
+              <span>accuracy across approximately 93 classes</span>
+            </div>
+            <ul class="tag-list" aria-label="Technologies">
+              <li>Python</li>
+              <li>CNNs</li>
+              <li>Transfer Learning</li>
+              <li>OpenCV</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-topline">
+              <span class="project-number">02</span>
+              <span class="project-status">Delivered</span>
+            </div>
+            <h3>Metallic vs. Solid Paint Classification</h3>
+            <p>
+              A binary image classification model trained on diverse real-world and external image
+              data, with preprocessing and augmentation for lighting, angle, blur, and noise.
+            </p>
+            <div class="project-metric">
+              <strong>98%</strong>
+              <span>classification accuracy</span>
+            </div>
+            <ul class="tag-list" aria-label="Technologies">
+              <li>Deep Learning</li>
+              <li>Image Classification</li>
+              <li>Data Augmentation</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-topline">
+              <span class="project-number">03</span>
+              <span class="project-status">In Progress</span>
+            </div>
+            <h3>Spectral Paint Formula Prediction</h3>
+            <p>
+              An ongoing neural-network regression system designed to predict paint formula
+              components from wavelength and reflectance measurements.
+            </p>
+            <ul class="tag-list" aria-label="Technologies">
+              <li>Neural Networks</li>
+              <li>Regression</li>
+              <li>Spectral Data</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-topline">
+              <span class="project-number">04</span>
+              <span class="project-status">FlyRank</span>
+            </div>
+            <h3>Operational ML Ranking System</h3>
+            <p>
+              Evaluated a baseline, Pure Logistic Regression, and a Hybrid ranking strategy using
+              a grouped client holdout. The final recommendation balanced predictive strength with
+              operational eligibility rules.
+            </p>
+            <div class="project-metric">
+              <strong>0.74</strong>
+              <span>Pure Logistic Regression Precision@50</span>
+            </div>
+            <ul class="tag-list" aria-label="Technologies">
+              <li>Logistic Regression</li>
+              <li>Grouped Split</li>
+              <li>Precision@K</li>
+              <li>Guardrails</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-topline">
+              <span class="project-number">05</span>
+              <span class="project-status">AI Fluency</span>
+            </div>
+            <h3>Study & Project Review Coach</h3>
+            <p>
+              A knowledge-grounded Custom GPT prototype that explains project evidence, runs
+              tutoring quizzes, refuses unsupported claims, and protects confidential information.
+            </p>
+            <ul class="tag-list" aria-label="Technologies">
+              <li>Custom GPT</li>
+              <li>Knowledge Retrieval</li>
+              <li>Evaluation</li>
+              <li>Guardrails</li>
+            </ul>
+          </article>
+
+          <article class="project-card">
+            <div class="project-topline">
+              <span class="project-number">06</span>
+              <span class="project-status">Self-Learning</span>
+            </div>
+            <h3>Selected Machine Learning Projects</h3>
+            <p>
+              Practice projects covering gold price prediction, product success classification,
+              introductory OCR, and digit recognition.
+            </p>
+            <ul class="tag-list" aria-label="Technologies">
+              <li>Regression</li>
+              <li>Classification</li>
+              <li>OCR</li>
+              <li>Model Evaluation</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <p class="section-kicker">Technical Skills</p>
+        <div class="section-heading">
+          <h2>Tools I use to move from data to decisions.</h2>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-group">
+            <h3>Programming & Data</h3>
+            <ul class="skill-list">
+              <li>Python</li>
+              <li>SQL</li>
+              <li>Pandas</li>
+              <li>NumPy</li>
+              <li>Matplotlib</li>
+            </ul>
+          </article>
+
+          <article class="skill-group">
+            <h3>Machine Learning</h3>
+            <ul class="skill-list">
+              <li>Regression</li>
+              <li>Classification</li>
+              <li>Feature Engineering</li>
+              <li>Data Preprocessing</li>
+              <li>Model Evaluation</li>
+            </ul>
+          </article>
+
+          <article class="skill-group">
+            <h3>Deep Learning & Vision</h3>
+            <ul class="skill-list">
+              <li>CNNs</li>
+              <li>Transfer Learning</li>
+              <li>TensorFlow / Keras</li>
+              <li>PyTorch</li>
+              <li>OpenCV</li>
+            </ul>
+          </article>
+
+          <article class="skill-group">
+            <h3>Workflow & Tools</h3>
+            <ul class="skill-list">
+              <li>Scikit-Learn</li>
+              <li>Jupyter Notebook</li>
+              <li>Google Colab</li>
+              <li>VS Code</li>
+              <li>GitHub</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-muted" id="learning">
+      <div class="container">
+        <p class="section-kicker">Continuous Learning</p>
+        <div class="section-heading">
+          <h2>Credentials supporting the work.</h2>
+        </div>
+
+        <div class="credential-list">
+          <div>IBM AI Engineering Professional Certificate</div>
+          <div>IBM Machine Learning Specialization</div>
+          <div>Machine Learning Specialization — DeepLearning.AI & Stanford University</div>
+          <div>Machine Learning Scientist in Python — DataCamp</div>
+          <div>Associate Data Scientist in Python — DataCamp</div>
+          <div>Python Essentials 1 & 2 — Cisco Networking Academy</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="future-work">
+      <div class="container">
+        <p class="section-kicker">Next</p>
+        <div class="future-grid">
+          <article class="future-card">
+            <span>Technical Writing</span>
+            <h2>Project notes and practical AI lessons.</h2>
+            <p>
+              Future posts will document model evaluation, computer vision workflows, and lessons
+              from turning prototypes into operational recommendations.
+            </p>
+            <div class="coming-soon">Posts coming soon</div>
+          </article>
+
+          <article class="future-card">
+            <span>FlyRank Capstone</span>
+            <h2>A dedicated space for the final capstone.</h2>
+            <p>
+              The approved capstone, supporting evidence, and final deployment will be added here
+              at the end of the track.
+            </p>
+            <div class="coming-soon">In development</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-card">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2>Let’s discuss AI, Machine Learning, or a potential opportunity.</h2>
+          <p>
+            To arrange a conversation, send me an email with your preferred day and time.
+            I will reply to confirm a suitable meeting slot.
+          </p>
+        </div>
+
+        <div class="contact-actions">
+          <a
+            class="button button-primary"
+            href="mailto:yousefmohamed662006@gmail.com?subject=Meeting%20Request%20-%20Youssef%20Abdelazem&body=Hello%20Youssef%2C%0A%0AI%20would%20like%20to%20arrange%20a%20conversation.%20My%20preferred%20day%20and%20time%20are%3A%0A%0A"
+          >
+            Book a Conversation by Email
+          </a>
+          <a class="email-link" href="mailto:yousefmohamed662006@gmail.com">
+            yousefmohamed662006@gmail.com
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 Youssef Mohamed Abdelazem. Built with HTML and CSS.</p>
+      <div>
+        <a href="https://linkedin.com/in/yousef-abdelazem-3361ab347" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/yousefmohamed662006-debug" target="_blank" rel="noopener">GitHub</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

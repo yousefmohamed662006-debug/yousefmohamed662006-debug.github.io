@@ -1,34 +1,28 @@
-# Youssef Mohamed — Week 5 Portfolio
+# Youssef Abdelazem Portfolio
 
-A responsive static portfolio built for the FlyRank AI Fluency Week 5 assignment.
+A responsive one-page portfolio built with plain HTML and CSS.
 
-## Stack
-- Semantic HTML
-- One shared CSS file
-- Small vanilla JavaScript file for mobile navigation and the footer year
-- GitHub Pages hosting
+## Files
 
-## Pages
-- `index.html` — homepage and featured proof
-- `projects.html` — project index
-- `content-opportunity.html` — main ML case study
-- `data-contract.html` — warehouse data-contract case study
-- `ai-fluency.html` — AI Fluency workflow case study
-- `about.html` — background and working principles
-- `contact.html` — email, LinkedIn, and GitHub
-- `404.html` — fallback page
-
-## How the site works
-Each page is a separate HTML file. All pages reuse `styles.css` and `script.js`. Navigation uses relative links, so the site works on GitHub Pages without a build step. The only JavaScript behavior is the mobile menu and automatic copyright year. There is no unexplained framework or generated runtime.
+- `index.html` — all page content and links.
+- `styles.css` — layout, colors, typography, cards, and responsive rules.
+- `Yousef_Abdelazem_CV.pdf` — the downloadable CV linked from the site.
 
 ## Publish on GitHub Pages
-1. Copy all files into the root of the portfolio repository.
-2. Commit and push to the `main` branch.
-3. In GitHub: Settings → Pages → Deploy from a branch → `main` / root.
-4. Open every navigation link in an incognito window and on mobile.
 
-## Final Week 5 human checks
-- Confirm every page opens without a 404.
-- Confirm the LinkedIn, email, GitHub, and repository links.
-- Send the public URL to one real person and record their reaction.
-- Post the live URL, reaction note, and honest “still ugly” list in the track thread.
+1. Replace the existing `index.html` and `styles.css` files in the repository.
+2. Upload `Yousef_Abdelazem_CV.pdf` to the repository root.
+3. Commit the changes to the `main` branch.
+4. Open the GitHub Pages URL and refresh after deployment completes.
+
+## Publish on Netlify
+
+1. Put all three files in one folder.
+2. Open Netlify Drop.
+3. Drag the folder into the upload area.
+4. Open Site configuration and change the site name to a professional available name.
+5. Test the final HTTPS link in a private browser window.
+
+## Contact button
+
+The “Book a Conversation by Email” button uses a `mailto:` link. It opens the visitor's email application with a pre-filled meeting request. It is intentionally not connected to an external booking service.
