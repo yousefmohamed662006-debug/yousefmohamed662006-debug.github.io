@@ -1,28 +1,54 @@
-# Youssef Abdelazem Portfolio
+# Yousef Mohamed Abdelazem — AI & ML Engineering Portfolio
 
-A responsive one-page portfolio built with plain HTML and CSS.
+[![Live Site](https://img.shields.io/badge/Live%20Portfolio-HTTPS%20Online-53d6b4?style=flat-square)](https://yousefmohamed662006-debug.github.io)
+[![FlyRank Verification](https://img.shields.io/badge/FlyRank-AI%20Internship%20Fellow-78b2ff?style=flat-square)](https://internship.flyrank.ai)
+[![License: MIT](https://img.shields.io/badge/License-MIT-gray?style=flat-square)](LICENSE)
 
-## Files
+A lightweight, evidence-grounded portfolio and technical case-study platform. Built with semantic HTML5, modular CSS3, zero heavy runtime dependencies, and automated GitHub Pages Continuous Deployment.
 
-- `index.html` — all page content and links.
-- `styles.css` — layout, colors, typography, cards, and responsive rules.
-- `Yousef_Abdelazem_CV.pdf` — the downloadable CV linked from the site.
+---
 
-## Publish on GitHub Pages
+## 🌐 Live URL & Repositories
 
-1. Replace the existing `index.html` and `styles.css` files in the repository.
-2. Upload `Yousef_Abdelazem_CV.pdf` to the repository root.
-3. Commit the changes to the `main` branch.
-4. Open the GitHub Pages URL and refresh after deployment completes.
+* **Live Portfolio Website:** [https://yousefmohamed662006-debug.github.io](https://yousefmohamed662006-debug.github.io)
+* **Portfolio Source Code:** [yousefmohamed662006-debug.github.io](https://github.com/yousefmohamed662006-debug/yousefmohamed662006-debug.github.io)
+* **FlyRank ML Work Repository:** [flyrank-ml-internship-youssef](https://github.com/yousefmohamed662006-debug/flyrank-ml-internship-youssef)
 
-## Publish on Netlify
+---
 
-1. Put all three files in one folder.
-2. Open Netlify Drop.
-3. Drag the folder into the upload area.
-4. Open Site configuration and change the site name to a professional available name.
-5. Test the final HTTPS link in a private browser window.
+## 📁 Key Capstone & Track Deliverables
 
-## Contact button
+1. **[Assignment 8.1 (FL-09) — Documentation & Visual Walkthrough](FL09_DOCUMENTATION_AND_DEMO.md)**  
+   *Architecture sketches, reproducible setup, v2 evaluation results, and visual walkthrough.*
+2. **[Assignment 8.2 (FL-10) — Final Package & Retrospective](CAPSTONE_FINAL_PACKAGE.md)**  
+   *Master index of all 10 weeks, 650-word engineering retrospective, hours log, and LinkedIn launch story.*
+3. **[Week 9 — Hardening Review (Checkpoint 2)](WEEK9_HARDENING_REVIEW.md)**  
+   *Edge-case stress testing, form honeypot protection, SEO audit, and triage matrix.*
+4. **[Week 7 — Mobile Reliability Fix Log](FIX_LOG.md)**  
+   *Mobile touch targets, WCAG AAA contrast, and responsive layout protections.*
+5. **[Week 3 — Identity Kit & Content Map](WEEK3_SUBMISSION.md)**  
+   *Typography, color palette rules, one-line claim, and image curation.*
 
-The “Book a Conversation by Email” button uses a `mailto:` link. It opens the visitor's email application with a pre-filled meeting request. It is intentionally not connected to an external booking service.
+---
+
+## 🚀 Quickstart: Local Preview
+
+Clone and run locally without installing any node modules or heavy frameworks:
+
+```bash
+git clone https://github.com/yousefmohamed662006-debug/yousefmohamed662006-debug.github.io.git
+cd yousefmohamed662006-debug.github.io
+python -m http.server 8000
+# Open http://localhost:8000 in your browser
+```
+
+---
+
+## 👤 Author & Contact
+
+**Yousef Mohamed Abdelazem**  
+*Artificial Intelligence Student & Applied Machine Learning Engineer*  
+* **LinkedIn:** [linkedin.com/in/yousef-abdelazem-3361ab347](https://www.linkedin.com/in/yousef-abdelazem-3361ab347)  
+* **Email:** [yousefmohamed662006@gmail.com](mailto:yousefmohamed662006@gmail.com)  
+* **GitHub:** [@yousefmohamed662006-debug](https://github.com/yousefmohamed662006-debug)
+
