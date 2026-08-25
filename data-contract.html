@@ -1,1 +1,167 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Search Intelligence Data Contract case study by Youssef Mohamed."><title>Search Intelligence Data Contract | Youssef Mohamed</title><link rel="stylesheet" href="styles.css"></head><body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container navbar"><a class="brand" href="index.html"><span class="brand-mark">YM</span><span>Youssef Mohamed</span></a><button class="menu-button" aria-expanded="false" aria-label="Open navigation">Menu</button><nav class="nav-links"><a href="index.html">Home</a><a href="projects.html" aria-current="page">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></div></header><main id="main"><section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="index.html">Home</a> / <a href="projects.html">Projects</a> / Search Intelligence Data Contract</div><span class="eyebrow">Data quality case study</span><h1>Defining what the warehouse data actually means.</h1><p class="lead">Before modeling, I documented the unit, time window, field meanings, missingness, verification queries, approved features, and a leakage trap for the FlyRank search-intelligence release.</p></div></section><section class="section"><div class="container case-layout"><div class="case-main"><article class="case-section"><h2>Why the contract mattered</h2><p>A clean-looking table can still produce a wrong model when the row meaning, time window, or source coverage is misunderstood. The contract converted a large warehouse release into a shared set of assumptions that could be checked before feature engineering.</p></article><article class="case-section"><h2>Core definitions</h2><ul><li><strong>Unit:</strong> one content page for one reporting month and client.</li><li><strong>Example verification month:</strong> March 2026.</li><li><strong>Source families:</strong> Google Search Console, GA4, traffic-channel sessions, and AI-referral fields.</li><li><strong>Coverage flags:</strong> fields such as <code>client_has_gsc</code> and <code>client_has_ga4</code> indicate whether zeros can be interpreted safely.</li></ul></article><article class="case-section"><h2>Representative fields</h2><div class="grid-2"><div class="card"><h3>Search visibility</h3><p><code>gsc_impressions</code>, <code>gsc_clicks</code>, <code>gsc_sum_position</code>, and <code>gsc_avg_position</code>.</p></div><div class="card"><h3>Engagement</h3><p><code>ga4_pageviews</code>, <code>ga4_sessions</code>, <code>ga4_users</code>, <code>ga4_engaged_sessions</code>, and total engagement seconds.</p></div><div class="card"><h3>Traffic mix</h3><p>Organic, direct, referral, social, paid, and AI-attributed sessions.</p></div><div class="card"><h3>AI sources</h3><p>ChatGPT, Perplexity, Gemini, Copilot, Claude, and Meta referral indicators.</p></div></div></article><article class="case-section"><h2>Verification plan</h2><p>I designed checks to confirm the release before modeling:</p><ol><li>Confirm the expected reporting month and row grain.</li><li>Check duplicate page-client-month combinations.</li><li>Compare null and zero patterns against the GSC and GA4 availability flags.</li><li>Inspect whether derived rates use valid denominators.</li><li>Verify that fields selected for modeling are available at recommendation time.</li></ol></article><article class="case-section"><h2>Feature and leakage decisions</h2><p>Candidate features were selected from information available before the decision, such as page age, search visibility, traffic volume, engagement, and channel mix. Label-derived fields, future windows, identifiers, and review-only context were excluded from model inputs.</p><div class="callout"><strong>Trap documented:</strong> a field can look predictive because it was calculated after the outcome window or built from the label. High correlation is not enough; availability timing must be verified.</div></article><article class="case-section"><h2>Outcome</h2><p>The result was not a model score. It was a safer modeling foundation: explicit assumptions, reproducible checks, and a record of which fields could be trusted. That contract later supported the baseline and Logistic Regression work without silently changing the meaning of the data.</p></article></div><aside class="case-sidebar"><div class="card"><h3>Project facts</h3><ul class="info-list"><li><span>Track</span><strong>FlyRank Machine Learning</strong></li><li><span>Focus</span><strong>Warehouse data contract</strong></li><li><span>Example month</span><strong>2026-03</strong></li><li><span>Main risk</span><strong>Leakage and false zeroes</strong></li></ul></div><div class="card"><h3>Skills shown</h3><div class="meta"><span class="tag">Data validation</span><span class="tag">Feature design</span><span class="tag">SQL reasoning</span><span class="tag">Documentation</span></div></div><a class="button button-primary" href="https://github.com/yousefmohamed662006-debug/flyrank-ml-internship-youssef" target="_blank" rel="noreferrer">View repository</a></aside></div></section></main><footer class="site-footer"><div class="container footer-inner"><span>© <span data-year></span> Youssef Mohamed.</span><div class="footer-links"><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div></div></footer><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Search Intelligence Data Contract case study by Yousef Mohamed Abdelazem.">
+  <title>Search Intelligence Data Contract | Yousef Mohamed Abdelazem</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='24' fill='%2353d6b4'/><text x='50%' y='54%' dominant-baseline='central' text-anchor='middle' font-family='sans-serif' font-weight='bold' font-size='44' fill='%2307111f'>YA</text></svg>">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="Yousef Mohamed Abdelazem home">
+        <span class="brand-mark" aria-hidden="true">YA</span>
+        <span class="brand-name">Yousef Abdelazem</span>
+      </a>
+
+      <div class="desktop-nav" aria-label="Desktop navigation">
+        <a href="index.html#about">About</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <a class="button button-small button-outline desktop-cv" href="Yousef_Abdelazem_CV.pdf" target="_blank" rel="noopener">
+        View CV
+      </a>
+
+      <details class="mobile-menu">
+        <summary aria-label="Open navigation menu">Menu</summary>
+        <div class="mobile-menu-panel">
+          <a href="index.html#about">About</a>
+          <a href="index.html#experience">Experience</a>
+          <a href="projects.html">Projects</a>
+          <a href="index.html#skills">Skills</a>
+          <a href="contact.html">Contact</a>
+          <a href="Yousef_Abdelazem_CV.pdf" target="_blank" rel="noopener">View CV</a>
+        </div>
+      </details>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumbs"><a href="index.html">Home</a> / <a href="projects.html">Projects</a> / Data Contract</div>
+        <span class="eyebrow">Data Engineering &amp; Hygiene Case Study</span>
+        <h1>Defining what warehouse data actually means before modeling.</h1>
+        <p class="lead">Before training models, I documented the row unit, time windows, field meanings, missingness semantics, verification queries, and anti-leakage boundaries for 30,000 multi-client search records.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container case-layout">
+        <div class="case-main">
+          <article class="case-section">
+            <h2>Why the Data Contract Mattered</h2>
+            <p>A clean-looking SQL table can silently destroy a machine learning model if grain, time window, or source availability flags are misinterpreted. This contract converted a large warehouse release into explicit, verifiable assumptions before feature extraction began.</p>
+          </article>
+
+          <article class="case-section">
+            <h2>Core Definitions &amp; Grain</h2>
+            <ul>
+              <li><strong>Unit of Analysis:</strong> Exactly one content page for one reporting month and client organization.</li>
+              <li><strong>Source Families:</strong> Google Search Console (GSC), Google Analytics 4 (GA4), channel traffic sessions, and emerging AI referral sources.</li>
+              <li><strong>Zero Interpretation Flags:</strong> Fields such as <code>client_has_gsc</code> and <code>client_has_ga4</code> distinguish between genuine zero traffic and unintegrated tracking.</li>
+            </ul>
+          </article>
+
+          <article class="case-section">
+            <h2>Representative Feature Groups</h2>
+            <div class="grid-2">
+              <div class="card">
+                <h3>Search Visibility</h3>
+                <p><code>gsc_impressions</code>, <code>gsc_clicks</code>, <code>gsc_sum_position</code>, and <code>gsc_avg_position</code>.</p>
+              </div>
+              <div class="card">
+                <h3>Engagement Signals</h3>
+                <p><code>ga4_pageviews</code>, <code>ga4_sessions</code>, <code>ga4_users</code>, and <code>ga4_engaged_sessions</code>.</p>
+              </div>
+              <div class="card">
+                <h3>Channel Mix</h3>
+                <p>Organic search, direct, referral, social, paid, and AI-attributed traffic shares.</p>
+              </div>
+              <div class="card">
+                <h3>AI Referral Sources</h3>
+                <p>ChatGPT, Perplexity, Gemini, Copilot, Claude, and Meta referral indicators.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-section">
+            <h2>Automated Verification Pipeline</h2>
+            <p>I designed a 5-step automated SQL and pandas verification suite before model training:</p>
+            <ol>
+              <li>Confirm expected reporting month and distinct primary key grain.</li>
+              <li>Detect and eliminate duplicate page-client-month combinations.</li>
+              <li>Validate null and zero patterns against integration availability flags.</li>
+              <li>Verify that derived rate denominators are strictly positive and bounded.</li>
+              <li>Confirm that candidate features are historically available at recommendation time.</li>
+            </ol>
+          </article>
+
+          <article class="case-section">
+            <h2>Leakage Traps Documented &amp; Prevented</h2>
+            <p>Candidate features were strictly selected from information available prior to the decision window. Target-derived fields, future rolling metrics, client-specific IDs, and post-audit tags were rigorously excluded from the modeling matrix.</p>
+            <div class="callout">
+              <strong>Documented Anti-Pattern:</strong> A feature often appears highly predictive simply because it was calculated during or after the outcome window. High correlation is not evidence of predictive power—temporal availability must be strictly guaranteed.
+            </div>
+          </article>
+
+          <article class="case-section">
+            <h2>Measurable Outcome</h2>
+            <p>The primary outcome was a hardened, reproducible data foundation. By defining explicit contracts and automated verification scripts, the subsequent Logistic Regression model achieved 0.74 Precision@50 with zero silent data corruption or post-split leakage.</p>
+          </article>
+        </div>
+
+        <aside class="case-sidebar">
+          <div class="card">
+            <h3>Project Facts</h3>
+            <ul class="info-list">
+              <li><span>Track</span><strong>FlyRank Machine Learning</strong></li>
+              <li><span>Focus</span><strong>Data Contract &amp; Hygiene</strong></li>
+              <li><span>Dataset Scale</span><strong>30,000 records</strong></li>
+              <li><span>Main Risk</span><strong>Temporal &amp; Client Leakage</strong></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Skills Applied</h3>
+            <div class="meta">
+              <span class="tag">Data Validation</span>
+              <span class="tag">SQL Verification</span>
+              <span class="tag">Feature Timing</span>
+              <span class="tag">Data Governance</span>
+            </div>
+          </div>
+          <a class="button button-primary" href="https://github.com/yousefmohamed662006-debug/flyrank-ml-internship-youssef" target="_blank" rel="noreferrer">View ML Repository ↗</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div>
+        <p>© 2026 Yousef Mohamed Abdelazem. Built with HTML and CSS.</p>
+        <div class="footer-badge-wrap">
+          <a class="graduate-badge" href="https://internship.flyrank.ai" target="_blank" rel="noopener" aria-label="FlyRank AI Internship Verification">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span class="badge-title">FlyRank AI Internship</span>
+            <span class="badge-sep">·</span>
+            <span class="badge-status">Fellow Verification ↗</span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <a href="https://www.linkedin.com/in/yousef-abdelazem-3361ab347" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/yousefmohamed662006-debug" target="_blank" rel="noopener">GitHub</a>
+        <a href="#top">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

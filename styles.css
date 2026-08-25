@@ -1208,3 +1208,120 @@ h3 {
     overflow-x: auto;
   }
 }
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.card-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  transition: transform 180ms ease, border-color 180ms ease;
+}
+
+.card-link:hover {
+  transform: translateY(-4px);
+  border-color: rgba(83, 214, 180, 0.40);
+}
+
+.card-link p {
+  color: var(--text-soft);
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.project-icon {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(120, 178, 255, 0.12);
+  border: 1px solid rgba(120, 178, 255, 0.25);
+  color: var(--blue);
+  font-weight: 800;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.project-icon.teal {
+  background: rgba(83, 214, 180, 0.12);
+  border-color: rgba(83, 214, 180, 0.30);
+  color: var(--accent-strong);
+}
+
+.link-arrow {
+  margin-top: auto;
+  color: var(--accent-strong);
+  font-weight: 700;
+  font-size: 0.92rem;
+  padding-top: 14px;
+}
+
+.band {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.band h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.band p {
+  margin: 0;
+  color: var(--text-soft);
+}
+
+.timeline-number {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(83, 214, 180, 0.12);
+  border: 1px solid var(--accent);
+  color: var(--accent-strong);
+  font-weight: 800;
+  font-size: 0.85rem;
+  margin-bottom: 12px;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.contact-link {
+  display: inline-flex;
+  margin-top: 16px;
+  color: var(--accent-strong);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 800px) {
+  .grid-2, .grid-3, .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .band {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
