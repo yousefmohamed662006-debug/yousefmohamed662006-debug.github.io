@@ -1,1 +1,200 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Content Opportunity Scoring case study by Youssef Mohamed."><title>Content Opportunity Scoring | Youssef Mohamed</title><link rel="stylesheet" href="styles.css"></head><body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><div class="container navbar"><a class="brand" href="index.html"><span class="brand-mark">YM</span><span>Youssef Mohamed</span></a><button class="menu-button" aria-expanded="false" aria-label="Open navigation">Menu</button><nav class="nav-links"><a href="index.html">Home</a><a href="projects.html" aria-current="page">Projects</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></div></header><main id="main"><section class="page-hero"><div class="container"><div class="breadcrumbs"><a href="index.html">Home</a> / <a href="projects.html">Projects</a> / Content Opportunity Scoring</div><span class="eyebrow">Featured ML case study</span><h1>Ranking content pages for refresh review.</h1><p class="lead">A FlyRank internship project that moved from task framing and a fixed rule to a grouped-split Logistic Regression model, evaluated with an operational top-of-list metric.</p></div></section><section class="section-tight"><div class="container stats"><div class="stat"><strong>30,000</strong><span>anonymized pages</span></div><div class="stat"><strong>45</strong><span>input columns</span></div><div class="stat"><strong>0.74</strong><span>model Precision@50</span></div><div class="stat"><strong>+0.38</strong><span>P@50 vs Week-4 baseline</span></div></div></section><section class="section"><div class="container case-layout"><div class="case-main"><article class="case-section"><h2>Problem</h2><p>The content team cannot review every page at once. The useful decision is not simply whether a page is declining, but which pages should appear first in a limited review queue. I framed the project as a <strong>ranking</strong> problem so evaluation could focus on the top recommendations a team would actually inspect.</p></article><article class="case-section"><h2>Task framing</h2><p>The unit of analysis was one anonymized content page. I used <code>is_declining_label</code> as a proxy target and selected <strong>Precision@50</strong> as the primary metric because false positives in the first 50 recommendations consume limited review time.</p><div class="callout"><strong>Honesty boundary:</strong> the label is a proxy for decline, not proof that a page should automatically be refreshed.</div></article><article class="case-section"><h2>Baseline and signal audit</h2><p>The first fixed rule selected pages with CTR below 0.07 and 90-day impressions above 731. It flagged 3,309 pages, with precision 0.675 and recall 0.137. This established a transparent benchmark but missed most proxy-positive pages.</p><p>In Week 4, I built a more operational rule using days since last update and impressions. The rule generated a ranked queue with the reason code <code>STALE_VISIBLE</code>, a confidence note, and a “could be wrong” check for every top recommendation.</p></article><article class="case-section"><h2>Model design</h2><p>I used a client-grouped train/test split to avoid placing pages from the same client in both sets. The train set contained 24 clients and 22,885 rows; the test set contained 8 clients and 7,115 rows, with zero client overlap.</p><p>The model was a Logistic Regression pipeline with preprocessing fit on the training data only. This gave me an interpretable learned benchmark without introducing a complex model before the evaluation setup was trustworthy.</p></article><article class="case-section"><h2>Results</h2><table class="result-table"><thead><tr><th>System</th><th>P@10</th><th>P@20</th><th>P@50</th><th>Positive pages in top 50</th></tr></thead><tbody><tr><td>Week-4 baseline</td><td>0.80</td><td>0.60</td><td>0.36</td><td>18</td></tr><tr><td>Logistic Regression</td><td>0.70</td><td>0.75</td><td><strong>0.74</strong></td><td><strong>37</strong></td></tr><tr><td>Eligibility + Logistic Regression</td><td>0.80</td><td><strong>0.85</strong></td><td>0.68</td><td>34</td></tr></tbody></table><p>The pure Logistic Regression model improved Precision@50 from 0.36 to 0.74. The eligibility-plus-model system preserved the locked staleness and visibility rule while improving the baseline queue, making it the recommended operational design when those guardrails are mandatory.</p></article><article class="case-section"><h2>What I learned</h2><p>A model can improve the ranking metric while still conflicting with operational eligibility. The strongest technical score is not automatically the strongest system. The right recommendation depends on whether the business wants maximum top-50 relevance or a queue that also stays inside locked review rules.</p><p>The next step is to validate the proxy against real content-review outcomes, test stability across time periods, and review model errors with domain experts.</p></article></div><aside class="case-sidebar"><div class="card"><h3>Project facts</h3><ul class="info-list"><li><span>Track</span><strong>FlyRank Machine Learning</strong></li><li><span>Task</span><strong>Ranking</strong></li><li><span>Metric</span><strong>Precision@50</strong></li><li><span>Model</span><strong>Logistic Regression</strong></li><li><span>Split</span><strong>Grouped by client</strong></li></ul></div><div class="card"><h3>Tools</h3><div class="meta"><span class="tag">Python</span><span class="tag">pandas</span><span class="tag">scikit-learn</span><span class="tag">Google Colab</span><span class="tag">GitHub</span></div></div><a class="button button-primary" href="https://github.com/yousefmohamed662006-debug/flyrank-ml-internship-youssef" target="_blank" rel="noreferrer">View repository</a></aside></div></section></main><footer class="site-footer"><div class="container footer-inner"><span>© <span data-year></span> Youssef Mohamed.</span><div class="footer-links"><a href="projects.html">Projects</a><a href="contact.html">Contact</a></div></div></footer><script src="script.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Content Opportunity Scoring Research Paper by Yousef Mohamed Abdelazem (FlyRank ML Internship Capstone).">
+  <title>Content Opportunity Scoring — Research Paper | Yousef Mohamed</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">YM</span>
+        <span>Youssef Mohamed</span>
+      </a>
+      <button class="menu-button" aria-expanded="false" aria-label="Open navigation">Menu</button>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <div class="breadcrumbs"><a href="index.html">Home</a> / <a href="projects.html">Projects</a> / Research Paper</div>
+        <span class="eyebrow">FlyRank ML Internship · Capstone Research Paper</span>
+        <h1>Content Opportunity Scoring: Ranking Web Pages for Refresh Review Under Grouped Client Holdout Validation</h1>
+        <p class="lead">An evidence-grounded machine learning study on 30,000 anonymized multi-client pages, evaluating hand-crafted heuristics against leakage-safe ranking pipelines.</p>
+        <div class="meta" style="margin-top:12px">
+          <span class="tag">Author: Yousef Mohamed Abdelazem</span>
+          <span class="tag">Lane: Refresh Opportunity Scoring</span>
+          <span class="tag">Dataset: FlyRank ML Warehouse</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container stats">
+        <div class="stat"><strong>30,000</strong><span>anonymized pages</span></div>
+        <div class="stat"><strong>32</strong><span>client organizations</span></div>
+        <div class="stat"><strong>0.74</strong><span>held-out Precision@50</span></div>
+        <div class="stat"><strong>+105%</strong><span>lift vs. heuristic baseline</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container case-layout">
+        <div class="case-main">
+          
+          <article class="case-section">
+            <h2>Abstract</h2>
+            <p>
+              Content editorial teams manage large digital libraries but possess constrained manual review bandwidth, making exhaustive page-by-page audits operationally infeasible. 
+              In this study, we frame content refresh prioritization as a ranking problem across 30,000 anonymized web pages spanning 32 client organizations. 
+              To prevent catastrophic feature leakage between multi-page client domains, we employ a strict grouped client-holdout split (24 training clients, 8 testing clients). 
+              Our learned Logistic Regression ranking model achieves a held-out Precision@50 of 0.74 (37 true decline opportunities in the top 50 recommendations), outperforming the baseline heuristic rule of 0.36 by +105%. 
+              These results demonstrate that leakage-safe machine learning ranking substantially improves review queue quality while providing transparent operational reason codes for domain editors.
+            </p>
+          </article>
+
+          <article class="case-section">
+            <h2>1. Introduction &amp; Problem Statement</h2>
+            <p>
+              Web content decay is a critical operational bottleneck in modern digital publishing. Pages gradually lose organic traffic and search visibility due to outdated information, shifting search intent, and competitive displacement. However, reviewing every underperforming URL is costly. The actionable business requirement is not a binary classification of all historical pages, but a <strong>ranked recommendation queue</strong> where top-ranked items yield maximum editorial ROI.
+            </p>
+          </article>
+
+          <article class="case-section">
+            <h2>2. Dataset &amp; Data Hygiene</h2>
+            <p>
+              The study utilizes the anonymized FlyRank ML Internship dataset release consisting of 30,000 rows across 45 structured search and content signals. 
+            </p>
+            <ul>
+              <li><strong>Public Safety &amp; Privacy:</strong> In compliance with data-use governance, all URLs, client names, search queries, and proprietary domain identifiers were fully stripped.</li>
+              <li><strong>Temporal &amp; Structural Windows:</strong> Signals include 90-day aggregate impressions, historical click-through rates (CTR), days since last update, and search position velocity.</li>
+            </ul>
+          </article>
+
+          <article class="case-section">
+            <h2>3. Methodology &amp; Leakage-Safe Validation</h2>
+            <p>
+              A major vulnerability in multi-client SEO data is cross-client domain leakage: random train/test splitting distributes URLs from the same client across both sets, enabling the model to memorize client-specific baselines rather than generalizable decay patterns.
+            </p>
+            <div class="callout">
+              <strong>Validation Design:</strong> We enforced a strict <strong>Grouped Client Split</strong> (24 clients / 22,885 rows in train; 8 clients / 7,115 rows in test with 0% client overlap). Preprocessing scalers and imputers were fitted exclusively on the training partition.
+            </div>
+            <p>
+              The baseline was established using a standard heuristic filter selecting pages with low historical CTR (&lt; 0.07) and substantial search impressions (&gt; 731). We compared this against a calibrated Logistic Regression ranker and a Hybrid rule-guarded ranker.
+            </p>
+          </article>
+
+          <article class="case-section">
+            <h2>4. Experimental Results</h2>
+            <p>
+              Performance was evaluated primarily on <strong>Precision@K</strong> (the proportion of genuinely declining pages in the top K recommendations), reflecting true operational value:
+            </p>
+            <table class="result-table">
+              <thead>
+                <tr>
+                  <th>Model / Architecture</th>
+                  <th>Precision@10</th>
+                  <th>Precision@20</th>
+                  <th>Precision@50</th>
+                  <th>True Opportunities in Top 50</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Heuristic Baseline (Week 4 Rule)</td>
+                  <td>0.80</td>
+                  <td>0.60</td>
+                  <td>0.36</td>
+                  <td>18 / 50</td>
+                </tr>
+                <tr>
+                  <td><strong>Logistic Regression (Pure Ranker)</strong></td>
+                  <td>0.70</td>
+                  <td>0.75</td>
+                  <td><strong>0.74</strong></td>
+                  <td><strong>37 / 50 (+105% Lift)</strong></td>
+                </tr>
+                <tr>
+                  <td>Hybrid (Eligibility Guardrails + Model)</td>
+                  <td><strong>0.80</strong></td>
+                  <td><strong>0.85</strong></td>
+                  <td>0.68</td>
+                  <td>34 / 50</td>
+                </tr>
+              </tbody>
+            </table>
+          </article>
+
+          <article class="case-section">
+            <h2>5. Limitations &amp; Decision-Support Framing</h2>
+            <p>
+              In accordance with research integrity, this model is framed strictly as an <strong>observed decision-support tool</strong>. The proxy label (<code>is_declining_label</code>) indicates statistical decay trends, not causal proof that an editorial rewrite will guarantee rank recovery. Content managers must combine algorithmic scores with domain expertise.
+            </p>
+          </article>
+
+          <article class="case-section">
+            <h2>6. Reproducibility &amp; Data Credit</h2>
+            <p>
+              Every notebook, data contract check, and feature engineering script is open-source and reproducible:
+            </p>
+            <ul>
+              <li><strong>GitHub Repository:</strong> <a href="https://github.com/yousefmohamed662006-debug/flyrank-ml-internship-youssef" target="_blank" rel="noopener">yousefmohamed662006-debug/flyrank-ml-internship-youssef ↗</a></li>
+              <li><strong>Assignment Notebooks:</strong> Located in <code>work/notebooks/</code> (from <code>w01</code> to <code>capstone.ipynb</code>).</li>
+            </ul>
+            <div class="callout" style="margin-top:16px">
+              <strong>Acknowledgments &amp; Data Credit:</strong> Built on the <a href="https://flyrank.ai" target="_blank" rel="noopener">FlyRank ML Internship dataset</a>. Research conducted under the FlyRank Machine Learning &amp; AI Fluency Program.
+            </div>
+          </article>
+
+        </div>
+
+        <aside class="case-sidebar">
+          <div class="card">
+            <h3>Key Facts</h3>
+            <ul class="info-list">
+              <li><span>Track</span><strong>FlyRank Machine Learning</strong></li>
+              <li><span>Task</span><strong>Ranking &amp; Opportunity Scoring</strong></li>
+              <li><span>Primary Metric</span><strong>Precision@50</strong></li>
+              <li><span>Validation</span><strong>Grouped Client Holdout</strong></li>
+              <li><span>Best Score</span><strong>0.74 P@50</strong></li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Reproducibility</h3>
+            <div class="meta">
+              <span class="tag">Python</span>
+              <span class="tag">scikit-learn</span>
+              <span class="tag">pandas</span>
+              <span class="tag">DuckDB</span>
+            </div>
+          </div>
+          <a class="button button-primary" href="https://github.com/yousefmohamed662006-debug/flyrank-ml-internship-youssef" target="_blank" rel="noreferrer">View ML Repository ↗</a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© <span data-year></span> Yousef Mohamed Abdelazem.</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
