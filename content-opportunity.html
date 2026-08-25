@@ -9,20 +9,37 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="container navbar">
-      <a class="brand" href="index.html">
-        <span class="brand-mark">YM</span>
-        <span>Youssef Mohamed</span>
+  <header class="site-header" id="top">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="Yousef Mohamed Abdelazem home">
+        <span class="brand-mark" aria-hidden="true">YA</span>
+        <span class="brand-name">Yousef Abdelazem</span>
       </a>
-      <button class="menu-button" aria-expanded="false" aria-label="Open navigation">Menu</button>
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
+
+      <div class="desktop-nav" aria-label="Desktop navigation">
+        <a href="index.html#about">About</a>
+        <a href="index.html#experience">Experience</a>
+        <a href="index.html#projects">Projects</a>
+        <a href="index.html#skills">Skills</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <a class="button button-small button-outline desktop-cv" href="Yousef_Abdelazem_CV.pdf" target="_blank" rel="noopener">
+        View CV
+      </a>
+
+      <details class="mobile-menu">
+        <summary aria-label="Open navigation menu">Menu</summary>
+        <div class="mobile-menu-panel">
+          <a href="index.html#about">About</a>
+          <a href="index.html#experience">Experience</a>
+          <a href="index.html#projects">Projects</a>
+          <a href="index.html#skills">Skills</a>
+          <a href="index.html#contact">Contact</a>
+          <a href="Yousef_Abdelazem_CV.pdf" target="_blank" rel="noopener">View CV</a>
+        </div>
+      </details>
+    </nav>
   </header>
 
   <main id="main">
@@ -186,15 +203,24 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <span>© <span data-year></span> Yousef Mohamed Abdelazem.</span>
-      <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
+    <div class="container footer-content">
+      <div>
+        <p>© 2026 Yousef Mohamed Abdelazem. Built with HTML and CSS.</p>
+        <div class="footer-badge-wrap">
+          <a class="graduate-badge" href="https://internship.flyrank.ai" target="_blank" rel="noopener" aria-label="FlyRank AI Internship Verification">
+            <span class="badge-dot" aria-hidden="true"></span>
+            <span class="badge-title">FlyRank AI Internship</span>
+            <span class="badge-sep">·</span>
+            <span class="badge-status">Fellow Verification ↗</span>
+          </a>
+        </div>
+      </div>
+      <div>
+        <a href="https://www.linkedin.com/in/yousef-abdelazem-3361ab347" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/yousefmohamed662006-debug" target="_blank" rel="noopener">GitHub</a>
+        <a href="#top">Back to top ↑</a>
       </div>
     </div>
   </footer>
-  <script src="script.js"></script>
 </body>
 </html>
